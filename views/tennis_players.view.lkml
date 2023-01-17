@@ -219,6 +219,43 @@ view: tennis_players {
   }
 
 
+
+  measure: total_tournaments {
+  #   description: "Use this for counting lifetime orders across many users"
+     type: count_distinct
+     sql: ${atp} ;;
+   }
+
+  measure: total_location {
+    #   description: "Use this for counting lifetime orders across many users"
+    type: count_distinct
+    sql: ${location} ;;
+  }
+
+  measure: total_rounds {
+    #   description: "Use this for counting lifetime orders across many users"
+    type: count
+#    sql: ${round} ;;
+  }
+
+  measure: total_comments {
+    #   description: "Use this for counting lifetime orders across many users"
+    type: count
+#    sql: ${comment} ;;
+  }
+
+  measure: total_winner_player {
+    #   description: "Use this for counting lifetime orders across many users"
+    type: count_distinct
+    sql: ${winner} ;;
+  }
+
+  measure: total_loser_player {
+    #   description: "Use this for counting lifetime orders across many users"
+    type: count_distinct
+    sql: ${loser} ;;
+  }
+
   #
   # dimension: lifetime_orders {
   #   description: "The total number of orders for each user"
