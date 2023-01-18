@@ -219,6 +219,65 @@ view: tennis_players {
   }
 
 
+
+  measure: Winning_Probability{
+    #getting the winning ptobaility
+     type: number
+    sql: ${Sum_Wpts}/(${SUM_Lpts}+${Sum_Wpts});;
+  }
+
+  measure: Loosing_Probability {
+    #getting the loosing prods
+    type: number
+    sql: ${SUM_Lpts}/(${SUM_Lpts}+${Sum_Wpts});;
+  }
+
+measure: count_wpts {
+  type: number
+  sql: COUNT(${wpts}) ;;
+}
+
+measure: count_lpts {
+  type: number
+  sql: COUNT(${lpts}) ;;
+}
+
+
+
+  measure: Count_Tournament {
+    #Count Tournaments
+    type: number
+    sql: COUNT(${tournament}) ;;
+  }
+
+  measure: count_T {
+    type: count
+    drill_fields: [tournament]
+  }
+
+measure: count_Surface {
+  #count Surface
+  type: number
+  sql: count(${surface}) ;;
+}
+
+measure: count_Series {
+  #Count Series
+  type: number
+  sql: COUNT(${series}) ;;
+}
+
+measure: Sum_Wpts {
+  type: sum
+  sql: ${wpts} ;;
+}
+
+measure: SUM_Lpts {
+  type: sum
+  sql: ${lpts} ;;
+}
+
+
   #
   # dimension: lifetime_orders {
   #   description: "The total number of orders for each user"
