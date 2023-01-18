@@ -1,4 +1,4 @@
-view: tennis_players {
+view: tennis_players_2022 {
   # # You can specify the table name if it's different from the view name:
     sql_table_name: public.tennis ;;
   #
