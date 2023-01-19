@@ -23,3 +23,14 @@ explore: tennis_players{
     sql_on: 1=1;;
   }
  }
+explore: peter_tennis_view {
+#   join: orders {
+#     relationship: many_to_one
+#     sql_on: ${orders.id} = ${order_items.order_id} ;;
+#   }
+#
+#   join: users {
+#     relationship: many_to_one
+#     sql_on: ${users.id} = ${orders.user_id} ;;
+#   }
+}
