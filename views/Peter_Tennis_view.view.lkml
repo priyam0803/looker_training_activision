@@ -1,25 +1,18 @@
-view: tennis_players {
+view: peter_tennis_view {
   # # You can specify the table name if it's different from the view name:
-    sql_table_name: public.tennis ;;
+  sql_table_name: public.tennis ;;
   #
   # # Define your dimensions and measures here, like this:
-    dimension: atp {
-  #    description: "Unique ID for each user that has ordered"
-      type: number
-      sql: ${TABLE}.atp ;;
-    }
-  dimension: user_id {
-#  description: "Unique ID for each user that has ordered"
-type: number
-sql: ${TABLE}.user_id ;;
-primary_key: yes
- }
-
-    dimension: location {
+  dimension: atp {
     #    description: "Unique ID for each user that has ordered"
-      type: string
-      sql: ${TABLE}.location ;;
-    }
+    type: number
+    sql: ${TABLE}.atp ;;
+  }
+  dimension: location {
+    #    description: "Unique ID for each user that has ordered"
+    type: string
+    sql: ${TABLE}.location ;;
+  }
 
   dimension: tournament {
     #    description: "Unique ID for each user that has ordered"
@@ -226,6 +219,41 @@ primary_key: yes
   }
 
 
+
+  measure: total_tournaments {
+    #   description: "Use this for counting lifetime orders across many users"
+    type: count_distinct
+    sql: ${atp} ;;
+  }
+
+  measure: total_location {
+    #   description: "Use this for counting lifetime orders across many users"
+    type: count_distinct
+    sql: ${location} ;;
+  }
+
+  measure: total_rounds {
+    #   description: "Use this for counting lifetime orders across many users"
+    type: count
+#    sql: ${round} ;;
+  }
+
+  measure: total_comments {
+    #   description: "Use this for counting lifetime orders across many users"
+    type: count
+#    sql: ${comment} ;;
+  }
+
+  measure: total_winner_player {
+    #   description: "Use this for counting lifetime orders across many users"
+    type: count_distinct
+    sql: ${winner} ;;
+  }
+
+  measure: total_loser_player {
+    #   description: "Use this for counting lifetime orders across many users"
+    type: count_distinct
+    sql: ${loser} ;;
   }
 
   #

@@ -8,6 +8,22 @@ include: "/views/*.view.lkml"                # include all views in the views/ f
 # # and define the joins that connect them together.
 #
 explore: tennis_players{
+   join: players {
+     relationship: one_to_one
+     sql_on: 1=1 ;;
+   }
+
+   join: winners_wrank_by_date {
+    relationship: one_to_one
+    sql_on: 1=1;;
+   }
+
+  join: losers_lrank_by_date {
+    relationship: one_to_one
+    sql_on: 1=1;;
+  }
+ }
+explore: peter_tennis_view {
 #   join: orders {
 #     relationship: many_to_one
 #     sql_on: ${orders.id} = ${order_items.order_id} ;;
@@ -17,4 +33,4 @@ explore: tennis_players{
 #     relationship: many_to_one
 #     sql_on: ${users.id} = ${orders.user_id} ;;
 #   }
- }
+}
