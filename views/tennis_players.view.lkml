@@ -226,7 +226,7 @@ primary_key: yes
   }
 
 
-  }
+
 
   #
   # dimension: lifetime_orders {
