@@ -255,6 +255,10 @@ view: peter_tennis_view {
     type: count_distinct
     sql: ${loser} ;;
   }
+  measure: count {
+    #   description: "Use this for counting lifetime orders across many users"
+    type: count
+  }
 
   #
   # dimension: lifetime_orders {
