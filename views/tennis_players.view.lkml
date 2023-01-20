@@ -8,6 +8,13 @@ view: tennis_players {
       type: number
       sql: ${TABLE}.atp ;;
     }
+  dimension: user_id {
+#  description: "Unique ID for each user that has ordered"
+type: number
+sql: ${TABLE}.user_id ;;
+primary_key: yes
+ }
+
     dimension: location {
     #    description: "Unique ID for each user that has ordered"
       type: string
@@ -219,41 +226,6 @@ view: tennis_players {
   }
 
 
-
-  measure: total_tournaments {
-  #   description: "Use this for counting lifetime orders across many users"
-     type: count_distinct
-     sql: ${atp} ;;
-   }
-
-  measure: total_location {
-    #   description: "Use this for counting lifetime orders across many users"
-    type: count_distinct
-    sql: ${location} ;;
-  }
-
-  measure: total_rounds {
-    #   description: "Use this for counting lifetime orders across many users"
-    type: count
-#    sql: ${round} ;;
-  }
-
-  measure: total_comments {
-    #   description: "Use this for counting lifetime orders across many users"
-    type: count
-#    sql: ${comment} ;;
-  }
-
-  measure: total_winner_player {
-    #   description: "Use this for counting lifetime orders across many users"
-    type: count_distinct
-    sql: ${winner} ;;
-  }
-
-  measure: total_loser_player {
-    #   description: "Use this for counting lifetime orders across many users"
-    type: count_distinct
-    sql: ${loser} ;;
   }
 
   #
